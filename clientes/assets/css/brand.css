@@ -1,0 +1,19 @@
+#carousel-wrapper {
+  width:1200px;
+  height:200px;
+  padding:10px 0;
+  overflow:hidden;
+  background:#fff;
+}
+
+#carousel-wrapper #carousel {
+  width:1000%;
+  list-style:none;
+  padding-left:0;
+  margin:0;
+}
+
+#carousel-wrapper #carousel li {
+  max-width:100%;
+  display:inline-block;
+}
