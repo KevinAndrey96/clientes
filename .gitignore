@@ -1,0 +1,20 @@
+# Variables de entorno y credenciales
+.env
+.env.*
+!.env.example
+
+# Registros de errores de PHP
+error_log
+*.log
+
+# Dependencias y artefactos locales
+/vendor/
+node_modules/
+
+# Sistema operativo e IDEs
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+nbproject/
+*.tmp
