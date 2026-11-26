@@ -1,10 +1,10 @@
 <?php
 class Basededatos
 {
-    private static $basedatos = 'mshyja_clientes';
-    private static $servidor = 'localhost';
-    private static $usuario = 'mshyja_admin';
-    private static $clave = 'Admin2019*';
+    private static $basedatos = null;
+    private static $servidor = null;
+    private static $usuario = null;
+    private static $clave = null;
      
     private static $conexion  = null;
      
@@ -16,7 +16,11 @@ class Basededatos
     {
        // Conexion para toda la aplicación
        if ( null == self::$conexion )
-       {     
+       {
+        self::$basedatos = getenv('DB_NAME');
+        self::$servidor = getenv('DB_HOST');
+        self::$usuario = getenv('DB_USER');
+        self::$clave = getenv('DB_PASS');     
         try
         {
           self::$conexion =  new PDO( "mysql:host=".self::$servidor.";"."dbname=".self::$basedatos, self::$usuario, self::$clave); 
@@ -35,13 +39,13 @@ class Basededatos
     }
 }
 
-$con = mysql_connect('localhost', 'mshyja_admin', 'Admin2019*') ;
+$con = mysql_connect(getenv('DB_HOST'), getenv('DB_USER'), getenv('DB_PASS')) ;
 if (!$con)
 {
   echo "No se pudo realizar la Conexion con la Base de Datos" . "\n";
   exit ;
 }
 
-mysql_select_db('mshyja_clientes') ;
+mysql_select_db(getenv('DB_NAME')) ;
 
 ?>

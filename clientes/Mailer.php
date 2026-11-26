@@ -1,12 +1,11 @@
 <?php
 require 'PHPMAILER/PHPMailerAutoload.php';
 //Remitente
-$Host="mshyja.co";
+$Host=getenv('MAIL_HOST');
 $From="no-responder@mshyja.co"
-$Password="***REMOVED***";
+$Password=getenv('MAIL_PASSWORD');
 $Business="MSHYJA"M
 $Web="https://mshyja.co";
-//***REMOVED***
 //Mensaje
 $Subject="Reestablecimiento de clave";
 $Message=$_GET["Message"];
